@@ -60,18 +60,27 @@ int main()
         {
             devOn1 = !devOn1; // Flip device state
             digitalWrite(GPIO_DEVICE1, devOn1); //Execute the flip
-            delay(1000); //delay 1000ms for testing purposes
+            buttonCounter1++;
+            totalCounter++;
+            printf("Button 1 has been pressed %d times, while in total all buttons has been pressed %d times.\n",buttonCounter1,totalCounter);
+            delay(1000); //delay 1000ms for testing purposes & can act as debounce timer too. :D
         }
         if(digitalRead(GPIO_BUTTON2) = 1)
         {
             devOn2 = !devOn2;
             digitalWrite(GPIO_DEVICE2, devOn2);
+            buttonCounter2++;
+            totalCounter++;
+            printf("Button 2 has been pressed %d times, while in total all buttons has been pressed %d times.\n",buttonCounter2,totalCounter);
             delay(1000);
         }
         if(digitalRead(GPIO_BUTTON3) = 1)
         {
             devOn3 = !devOn3;
             digitalWrite(GPIO_DEVICE3, devOn3);
+            buttonCounter3++;
+            totalCounter++;
+            printf("Button 3 has been pressed %d times, while in total all buttons has been pressed %d times.\n",buttonCounter3,totalCounter);
             delay(1000);
         }
 };

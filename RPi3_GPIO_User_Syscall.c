@@ -17,6 +17,10 @@ SYSCALL_DEFINE3(flipstate, int, gpioButton, int, gpioDevice, int, devOn)
 
 /** And then compile the kernel **/
 
-/*********************************************************************/
-/** alternatively create a way to access kernel module with ioctl() **/
-/*********************************************************************/
+/**********************************************************************************/
+/** OR alternatively use ioctl() to access kernel module, but that's not syscall **/
+/**********************************************************************************/
+
+// fopen( nama part)
+// fwrite()
+// keyword how to access kern module using fopen() in raspberrypi

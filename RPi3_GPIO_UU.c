@@ -8,12 +8,12 @@
 #include<wiringPi.h> // To include WiringPi library
 
 /** These are the macros, their values will be the same, everywhere in the program **/
-#define GPIO_DEVICE1 "17"
-#define GPIO_DEVICE2 "27"
-#define GPIO_DEVICE3 "22"
-#define GPIO_BUTTON1 "23"
-#define GPIO_BUTTON2 "24"
-#define GPIO_BUTTON3 "25"
+#define GPIO_DEVICE1 17
+#define GPIO_DEVICE2 27
+#define GPIO_DEVICE3 22
+#define GPIO_BUTTON1 23
+#define GPIO_BUTTON2 24
+#define GPIO_BUTTON3 25
 //#define GPIO17_PATH "/sys/class/gpio/gpio17"
 //#define GPIO27_PATH "/sys/class/gpio/gpio27"
 //#define GPIO22_PATH "/sys/class/gpio/gpio22"
@@ -36,7 +36,7 @@ static bool devOn3 = 0;
 int main()
 {
     // Setting up before the actual mechanism
-    wiringPiSetupGPIO(); // Initializing wiringPi using the BCM pin numbering
+    wiringPiSetupGpio(); // Initializing wiringPi using the BCM pin numbering
 
     pinMode(GPIO_DEVICE1, OUTPUT);
     pinMode(GPIO_DEVICE2, OUTPUT);

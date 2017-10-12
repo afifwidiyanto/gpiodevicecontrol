@@ -64,7 +64,7 @@ int main()
 
     while(1)
     {
-        fp = fopen("/proc/devState","r+");
+        fp = fopen("/proc/devState","w+");
 
         wiringPiISR(GPIO_BUTTON1, INT_EDGE_RISING, &device1); // if there is a trigger from GPIO_BUTTON1 at rising edge, then call fuction device1()
         wiringPiISR(GPIO_BUTTON2, INT_EDGE_RISING, &device2);

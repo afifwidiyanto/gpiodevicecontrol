@@ -19,37 +19,38 @@ MODULE_VERSION("0.0.1");
 #define PROCFS_NAME "devState"
 #define MAXBUFFSIZE 256
 
-static unsigned int gpioDevice1 = 23; // GPIO23
-static unsigned int gpioDevice2 = 24;
-static unsigned int gpioDevice3 = 25;
-static unsigned int gpioButton1 = 17; // GPIO17
-static unsigned int gpioButton2 = 27;
-static unsigned int gpioButton3 = 22;
+static char mm_buff[MAXBUFFSIZE];
+
+static unsigned int gpioDevice1 = 17; // GPIO17
+static unsigned int gpioDevice2 = 27;
+static unsigned int gpioDevice3 = 22;
+static unsigned int gpioButton1 = 23; // GPIO23
+static unsigned int gpioButton2 = 24;
+static unsigned int gpioButton3 = 25;
 static bool devOn1 = 0; // Initial state of devices
 static bool devOn2 = 0;
 static bool devOn3 = 0;
 
 static struct proc_dir_entry *Our_Proc_File;
 
-static char procfs_buffer[MAXBUFFSIZE];
-static unsigned long procfs_buffer_size = 0;
+/*******************************************/
+/** Put these lines first in kernel/sys.c **/ /** <--- all below this line is not used. LEL **/
+/** is it the same location for raspbian? **/
+/*******************************************/
 
-int procfile_read(char *buffer, char** buffer_location, off_t offset, int buffer_length, int *eof, void *data)
+SYSCALL_DEFINE3(flipstate, int, gpioButton, int, gpioDevice, int, devOn)
 {
-    int ret;
-
-    printk(KERN_INFO "procfile_read (/proc/%s) called\n", PROCFS_NAME);
-
-    if (offset > 0){
-        ret = 0;
-    }
-    else{
-        memcpy(buffer, procfs_buffer, procfs_buffer_size);
-        ret = procfs_buffer_size;
-    }
-    return ret;
+    // copy interrupt from kernel here?
+    // should the flipping function be put in kernel/sys.c?
+    // or in kernel module?
 }
 
-static int __init rpi3_gpio_UK_init(void) {
-    Our_Proc_File = proc_create_data(PROCFS_NAME, );
-}
+/** And then compile the kernel **/
+
+/**********************************************************************************/
+/** OR alternatively use ioctl() to access kernel module, but that's not syscall **/
+/**********************************************************************************/
+
+// fopen( nama part)
+// fwrite()
+// keyword how to access kern module using fopen() in raspberrypi

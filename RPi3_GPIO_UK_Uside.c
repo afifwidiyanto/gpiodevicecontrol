@@ -1,3 +1,5 @@
+/** Sebelum dilanjutkan perlu diingat bahwa paradigmanya adalah komputasi di kernel module & di userspace tinggal switching saja **/
+
 /*****************************************************************/
 /** This is a program in userspace that read GPIO and do fwrite **/
 /** to file named /proc/devState everytime the button is pushed **/

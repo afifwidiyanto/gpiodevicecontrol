@@ -1,3 +1,5 @@
+/** Sebelum dilanjutkan perlu diingat bahwa paradigmanya adalah komputasi di kernel module & di userspace tinggal switching saja **/
+
 /**********************************************************/
 /** This is a kernel module that reads a proc filesystem **/
 /** which is under control of the program in user space  **/
